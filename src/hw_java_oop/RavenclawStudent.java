@@ -1,20 +1,69 @@
 package hw_java_oop;
 
-public class RavenclawStudent extends HogwartsStudent{
+public class RavenclawStudent extends HogwartsStudent {
     private int intelligence;
     private int wisdom;
     private int wit;
     private int creativity;
-    public RavenclawStudent(String name, int magicPower, int transgressionDistance, int intelligence, int wisdom, int wit, int creativity) {
-        super(name, magicPower, transgressionDistance);
-        this.intelligence = intelligence;
-        this.wisdom = wisdom;
-        this.wit = wit;
-        this.creativity = creativity;
+
+    public RavenclawStudent(RavenclawStudentBuilder builder) {
+        super(builder.name, builder.magicPower, builder.transgressionDistance);
+        this.intelligence = builder.intelligence;
+        this.wisdom = builder.wisdom;
+        this.wit = builder.wit;
+        this.creativity = builder.creativity;
     }
 
-    @Override
-    int calculateTraitPoints() {
+    public static class RavenclawStudentBuilder {
+        private String name;
+        private int magicPower;
+        private int transgressionDistance;
+        private int intelligence;
+        private int wisdom;
+        private int wit;
+        private int creativity;
+
+        public RavenclawStudentBuilder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public RavenclawStudentBuilder setMagicPower(int magicPower) {
+            this.magicPower = magicPower;
+            return this;
+        }
+
+        public RavenclawStudentBuilder setTransgressionDistance(int transgressionDistance) {
+            this.transgressionDistance = transgressionDistance;
+            return this;
+        }
+
+        public RavenclawStudentBuilder setIntelligence(int intelligence) {
+            this.intelligence = intelligence;
+            return this;
+        }
+
+        public RavenclawStudentBuilder setWisdom(int wisdom) {
+            this.wisdom = wisdom;
+            return this;
+        }
+
+        public RavenclawStudentBuilder setWit(int wit) {
+            this.wit = wit;
+            return this;
+        }
+
+        public RavenclawStudentBuilder setCreativity(int creativity) {
+            this.creativity = creativity;
+            return this;
+        }
+
+        public RavenclawStudent build() {
+            return new RavenclawStudent(this);
+        }
+    }
+
+    private int calculateTraitPoints() {
         return intelligence + wisdom + wit + creativity;
     }
 

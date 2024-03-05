@@ -1,23 +1,77 @@
 package hw_java_oop;
 
-public class SlytherinStudent extends HogwartsStudent{
+public class SlytherinStudent extends HogwartsStudent {
     private int trickery;
     private int determination;
     private int ambition;
     private int ingenuity;
     private int greed;
 
-    public SlytherinStudent(String name, int magicPower, int transgressionDistance, int trickery, int determination, int ambition, int ingenuity, int greed) {
-        super(name, magicPower, transgressionDistance);
-        this.trickery = trickery;
-        this.determination = determination;
-        this.ambition = ambition;
-        this.ingenuity = ingenuity;
-        this.greed = greed;
+    public SlytherinStudent(SlytherinStudentBuilder builder) {
+        super(builder.name, builder.magicPower, builder.transgressionDistance);
+        this.trickery = builder.trickery;
+        this.determination = builder.determination;
+        this.ambition = builder.ambition;
+        this.ingenuity = builder.ingenuity;
+        this.greed = builder.greed;
     }
 
-    @Override
-    int calculateTraitPoints() {
+    public static class SlytherinStudentBuilder {
+        private String name;
+        private int magicPower;
+        private int transgressionDistance;
+        private int trickery;
+        private int determination;
+        private int ambition;
+        private int ingenuity;
+        private int greed;
+
+        public SlytherinStudentBuilder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public SlytherinStudentBuilder setMagicPower(int magicPower) {
+            this.magicPower = magicPower;
+            return this;
+        }
+
+        public SlytherinStudentBuilder setTransgressionDistance(int transgressionDistance) {
+            this.transgressionDistance = transgressionDistance;
+            return this;
+        }
+
+        public SlytherinStudentBuilder setTrickery(int trickery) {
+            this.trickery = trickery;
+            return this;
+        }
+
+        public SlytherinStudentBuilder setDetermination(int determination) {
+            this.determination = determination;
+            return this;
+        }
+
+        public SlytherinStudentBuilder setAmbition(int ambition) {
+            this.ambition = ambition;
+            return this;
+        }
+
+        public SlytherinStudentBuilder setIngenuity(int ingenuity) {
+            this.ingenuity = ingenuity;
+            return this;
+        }
+
+        public SlytherinStudentBuilder setGreed(int greed) {
+            this.greed = greed;
+            return this;
+        }
+
+        public SlytherinStudent build() {
+            return new SlytherinStudent(this);
+        }
+    }
+
+    private int calculateTraitPoints() {
         return trickery + determination + ambition + ingenuity + greed;
     }
 

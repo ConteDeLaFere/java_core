@@ -1,17 +1,15 @@
 package hw_java_oop;
 
 public abstract class HogwartsStudent {
-    protected String name;
-    protected int magicPower;
-    protected int transgressionDistance;
+    protected final String name;
+    protected final int magicPower;
+    protected final int transgressionDistance;
 
     public HogwartsStudent(String name, int magicPower, int transgressionDistance) {
         this.name = name;
         this.magicPower = magicPower;
         this.transgressionDistance = transgressionDistance;
     }
-
-    abstract int calculateTraitPoints();
 
     public void comparePower(HogwartsStudent student) {
         int powerCompare = Integer.compare(calculatePower(), student.calculatePower());
