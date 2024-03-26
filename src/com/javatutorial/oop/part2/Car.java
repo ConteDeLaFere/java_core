@@ -1,4 +1,4 @@
-package hw_java_oop_part2;
+package com.javatutorial.oop.part2;
 
 public class Car extends Bicycle {
 

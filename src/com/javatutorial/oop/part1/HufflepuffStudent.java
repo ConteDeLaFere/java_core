@@ -1,4 +1,4 @@
-package hw_java_oop;
+package com.javatutorial.oop.part1;
 
 public class HufflepuffStudent extends HogwartsStudent {
     private int diligence;
