@@ -15,19 +15,13 @@ public class Main {
         System.out.print("Подтвердите пароль: ");
         String confirmPassword = sc.nextLine();
 
-        User user = null;
-
         try {
-            user = User.create(login, password, confirmPassword);
+            Validator.validate(login, password, confirmPassword);
             System.out.println("Все завершилось успешно!");
         } catch (WrongLoginException | WrongPasswordException exception) {
             System.out.println(exception.getMessage());
         } catch (Exception exception) {
             System.out.println("Что-то пошло не так...");
-        }
-
-        if (user != null) {
-            System.out.println(user);
         }
 
     }
